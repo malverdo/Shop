@@ -1,4 +1,10 @@
-# Shop
+# Интернет-магазин
 
-- [app.diagrams.net](https://app.diagrams.net/)
-- [diagrams shop](https://github.com/malverdo/Shop/blob/main/shop.diagrams.net)
+## Оглавление
+1. Урок 1 Проектирование БД - 30 May 2023
+
+### Домашние задания
+1. Реализуйте сущности продукты, категории продуктов, цены, поставщики, производители,
+покупатели и покупки. Свои решения для этой схемы приветствуются
+    - [app.diagrams.net](https://app.diagrams.net/)
+    - [diagrams shop](https://github.com/malverdo/Shop/blob/main/shop.diagrams.net)
