@@ -6,5 +6,30 @@
 ### Домашние задания
 1. Реализуйте сущности продукты, категории продуктов, цены, поставщики, производители,
 покупатели и покупки. Свои решения для этой схемы приветствуются
-    - [app.diagrams.net](https://app.diagrams.net/)
-    - [diagrams shop](https://github.com/malverdo/Shop/blob/main/shop.diagrams.net)
+   - Сайт на котором проектировалась схема.
+      - [app.diagrams.net](https://app.diagrams.net/)
+   - Схема.
+      - [diagrams shop](https://github.com/malverdo/Shop/blob/main/shop.diagrams.net)
+2. Добавляем в модель данных дополнительные индексы и ограничения также
+   - Доплонительно добавленно в схему: 
+     - Стоимость товара.
+     - В чеке может быть несколько товаров.
+     - Предусмотрено система скидок
+     - Доставка с уведомлениями
+   - Добавленые индексы:
+     - Products
+        Индекс: (products.name , products.cost)
+        Описание:  у поля name высокая кардинальность, так же у каждого products.cost своя стоимость, поэтому составной ключ в первую очередь по name потом уже по cost
+     - Purchase
+        Индекс: products.price
+        Описание:  у поля price самая высокая кардинальность относительно других полей в таблице
+     - Customer
+        Индекс: products.nickname
+        Описание:  у поля nickname  высокая кардинальность и он уникален , по нему поиск будет чаще всех
+     - Order
+        Индекс: Order.price
+        Описание:   поле price самая высокая кардинальность относительно других полей в таблице 
+   - Сайт на котором проектировалась схема.
+     - [app.diagrams.net](https://app.diagrams.net/)
+   - Схема.
+     - [diagrams shop](https://github.com/malverdo/Shop/blob/main/shop.diagrams.net)
