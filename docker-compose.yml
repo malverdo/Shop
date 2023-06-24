@@ -1,0 +1,27 @@
+version: "3.7"
+services:
+  postgres:
+    build:
+      context: Deployment/Docker/${APP}/Postgres
+      dockerfile: Dockerfile
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=root
+    ports:
+      - "54321:5432"
+    volumes:
+      - ./Deployment/DataBaseInit/Postgres/create_database.sql:/docker-entrypoint-initdb.d/docker_postgres_init.sql
+      - ./Deployment/postgres-data:/var/lib/postgresql/data
+  pgadmin:
+    build:
+      context: ./Deployment/Docker/${APP}/PgAdmin
+      dockerfile: Dockerfile
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "test@mail.ru"
+      PGADMIN_DEFAULT_PASSWORD: "test@mail.ru"
+    #id = 172.17.0.1
+    ports:
+      - "16543:80"
+    depends_on:
+      - postgres
