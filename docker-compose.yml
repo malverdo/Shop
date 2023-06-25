@@ -11,7 +11,10 @@ services:
     ports:
       - "54321:5432"
     volumes:
-      - ./Deployment/DataBaseInit/Postgres/create_database.sql:/docker-entrypoint-initdb.d/docker_postgres_init.sql
+      - ./Deployment/DataBaseInit/Postgres/create_database.sql:/docker-entrypoint-initdb.d/create_database_init.sql
+      - ./Deployment/DataBaseInit/Postgres/create_role.sql:/docker-entrypoint-initdb.d/create_role_init.sql
+      - ./Deployment/DataBaseInit/Postgres/create_tables.sql:/tmp/create_tables_init.sql
+      - ./Deployment/DataBaseInit/Postgres/create_schema.sql:/tmp/create_schema_init.sql
       - ./Deployment/postgres-data:/var/lib/postgresql/data
   pgadmin:
     build:

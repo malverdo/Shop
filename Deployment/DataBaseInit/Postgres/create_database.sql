@@ -1,1 +1,1 @@
-CREATE DATABASE shop;
+create DATABASE shop;
