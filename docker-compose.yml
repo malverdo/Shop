@@ -10,6 +10,8 @@ services:
       - POSTGRES_PASSWORD=root
     ports:
       - "54321:5432"
+    # psql -U shop_root shop < /tmp/create_schema_init.sql
+    # psql -U shop_root shop < /tmp/create_tables_init.sql
     volumes:
       - ./Deployment/DataBaseInit/Postgres/create_database.sql:/docker-entrypoint-initdb.d/create_database_init.sql
       - ./Deployment/DataBaseInit/Postgres/create_role.sql:/docker-entrypoint-initdb.d/create_role_init.sql
