@@ -32,7 +32,10 @@ Index Only Scan using customer_1_idx on user.customer as customer (cost=0.13..0.
 
 3. Реализовать индекс для полнотекстового поиска
 ```sql
-CREATE INDEX products_1_idx ON product.products using GIN (name);
+CREATE INDEX products_1_idx ON product.products using GIN (to_tsvector('english', name));
+
+Bitmap Index Scan using products_1_idx (cost=0..0 rows=1 width=0) (actual=0.008..0.008 rows=9 loops=1)
+    Index Cond: (to_tsvector('english'::regconfig, products.body) @@ '''name'''::tsquery)
 ```
 
 4. Реализовать индекс на часть таблицы или индекс на поле с функцией
