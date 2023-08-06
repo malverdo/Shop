@@ -8,3 +8,4 @@
 5. [Урок 5 DML: вставка, обновление, удаление, выборка данных](./lessons/Lessons_5.md)
 6. [Урок 6 Индексы PostgreSQL](./lessons/Lessons_6.md)
 7. [Урок 7 DML: агрегация и сортировка, CTE, аналитические функции](./lessons/Lessons_7.md)
+8. [Урок 8 Репликация](./lessons/Lessons_8.md)

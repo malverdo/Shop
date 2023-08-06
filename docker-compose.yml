@@ -12,12 +12,13 @@ services:
       - "54321:5432"
     # psql -U shop_root shop < /tmp/create_schema_init.sql
     # psql -U shop_root shop < /tmp/create_tables_init.sql
+    # psql -U postgres -d shop
     volumes:
       - ./Deployment/DataBaseInit/Postgres/create_database.sql:/docker-entrypoint-initdb.d/create_database_init.sql
       - ./Deployment/DataBaseInit/Postgres/create_role.sql:/docker-entrypoint-initdb.d/create_role_init.sql
       - ./Deployment/DataBaseInit/Postgres/create_tables.sql:/tmp/create_tables_init.sql
       - ./Deployment/DataBaseInit/Postgres/create_schema.sql:/tmp/create_schema_init.sql
-      - ./Deployment/postgres-data:/var/lib/postgresql/data
+      - ./Deployment/data/postgres-data:/var/lib/postgresql/data
   pgadmin:
     build:
       context: ./Deployment/Docker/${APP}/PgAdmin
@@ -30,3 +31,13 @@ services:
       - "16543:80"
     depends_on:
       - postgres
+
+  postgresql_01:
+    image: postgres
+    container_name: postgresql_01
+    restart: always
+    volumes:
+      - ./Deployment/data/postgresql_01:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: root
+
