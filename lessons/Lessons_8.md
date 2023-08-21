@@ -35,13 +35,19 @@
     - pg_createcluster 15 main
     - pg_createcluster 15 main2
     - pg_lsclusters
-    - rm -rf /var/lib/postgresql/14/main
-    - rm -rf /var/lib/postgresql/14/main2
-    - pg_basebackup -U postgres  -p 5432 -R -D /var/lib/postgresql/14/main
-    - pg_basebackup -U postgres  -p 5432 -R -D /var/lib/postgresql/14/main2
+    - rm -rf /var/lib/postgresql/15/main
+    - rm -rf /var/lib/postgresql/15/main2
+    - pg_basebackup -U postgres  -p 5432 -R -D /var/lib/postgresql/15/main
+    - pg_basebackup -U postgres  -p 5432 -R -D /var/lib/postgresql/15/main2
     - pg_ctlcluster 15 main start	
     - pg_ctlcluster 15 main2 start	
+    - pg_ctlcluster 15 main stop	
+    - pg_ctlcluster 15 main2 stop	
+    
 ```
+При остановке кластера, контейнер не остановится.
+![Снимок экрана от 2023-08-21 13-04-43.png](..%2Fimages%2Flessons_8%2F%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20%D0%BE%D1%82%202023-08-21%2013-04-43.png)
+
 ### Фото
 ![img.png](../images/lessons_8/img.png)
 
