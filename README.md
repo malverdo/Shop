@@ -13,3 +13,4 @@
 8. [Урок 8 Репликация](./lessons/Lessons_8.md)
 9. [Урок 9 Внутренняя архитектура СУБД MySQL ](./lessons/Lessons_9.md)
 10. [Урок 10 Типы данных в MySQL  ](./lessons/Lessons_10.md)
+11. [Урок 11 DML: вставка, обновление, удаление, выборка данных](./lessons/Lessons_11.md)
