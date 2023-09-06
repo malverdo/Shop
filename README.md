@@ -12,3 +12,4 @@
 7. [Урок 7 DML: агрегация и сортировка, CTE, аналитические функции](./lessons/Lessons_7.md)
 8. [Урок 8 Репликация](./lessons/Lessons_8.md)
 9. [Урок 9 Внутренняя архитектура СУБД MySQL ](./lessons/Lessons_9.md)
+10. [Урок 10 Типы данных в MySQL  ](./lessons/Lessons_10.md)
