@@ -41,3 +41,17 @@ services:
     environment:
       POSTGRES_PASSWORD: root
 
+  otusdb:
+    image: mysql:8.0.15
+    environment:
+      - MYSQL_ROOT_PASSWORD=12345
+    command:
+      --init-file /init.sql
+    volumes:
+      - ./Deployment/data/otusdb:/var/lib/mysql
+      - ./Deployment/DataBaseInit/MySQL/init.sql:/init.sql
+      - ./Deployment/Docker/Dev/MySQL/conf:/etc/mysql/conf.d
+    expose:
+      - "3306"
+    ports:
+      - "3309:3306"
