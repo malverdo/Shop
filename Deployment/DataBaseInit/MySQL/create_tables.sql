@@ -27,3 +27,12 @@ CREATE TABLE BooksCategories
     CONSTRAINT FK_1 FOREIGN KEY (books_id) REFERENCES Books (id),
     CONSTRAINT FK_2 FOREIGN KEY (categories_id) REFERENCES Categories (id)
 );
+
+CREATE TABLE products (
+                          title VARCHAR(32) NOT NULL,
+                          category VARCHAR(32),
+                          price INT,
+                          rating INT,
+                          status VARCHAR(32) NOT NULL,
+                          PRIMARY KEY (title)
+);
