@@ -36,3 +36,29 @@ CREATE TABLE products (
                           status VARCHAR(32) NOT NULL,
                           PRIMARY KEY (title)
 );
+
+
+CREATE TABLE fashion (
+    Handle VARCHAR(255)
+);
+
+INSERT INTO products
+(title, category, price, rating, status)
+VALUES
+    ('Агдам', 'Напитки', 150, 2, 'В наличии'),
+    ('Килька', 'Консервы', 45, 4, 'Распродан'),
+    ('Оливки', 'Консервы', 250, 5, 'Распродан'),
+    ('Текила', 'Напитки', 3000, 5, 'В наличии'),
+    ('Шмурдяк', 'Напитки', 120, 1, 'Распродан'),
+    ('Арахис', 'Орехи', 250, 5, 'Распродан');
+
+insert into auto (id, model)
+values (1, '{
+  "x5": "bmw",
+  "x3": "bmw",
+  "x4": "bmw",
+  "x7": "bmw",
+  "ASUS": "mers",
+  "AXE": "mers",
+  "VINT": "mers"
+}') ;
