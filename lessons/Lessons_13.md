@@ -5,14 +5,24 @@
 - Загрузить данные из приложенных в материалах csv. Реализовать LOAD DATA
 ## транзакция
 ```sql
+CREATE PROCEDURE get_plane_info()
+BEGIN
 START TRANSACTION;
 SELECT * FROM products WHERE category = 'напитки' AND status = 'В наличии' ;
 UPDATE products SET status = 'Распродан' WHERE category = 'напитки' AND status = 'В наличии' ;
 insert into auto (id, model)
 values (2, '{
-  "x5": "bmw"
-}') ;
-COMMIT;
+      "x5": "bmw",
+      "x3": "bmw",
+      "x4": "bmw",
+      "x7": "bmw",
+      "ASUS": "mers",
+      "AXE": "mers",
+      "VINT": "mers"
+    }') ;
+END
+
+CALL get_plane_info;
 ```
 
 ## LOAD DATA
