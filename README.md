@@ -16,3 +16,4 @@
 11. [Урок 11 DML: вставка, обновление, удаление, выборка данных](./lessons/Lessons_11.md)
 12. [Урок 12 DML: агрегация и сортировка](./lessons/Lessons_12.md)
 13. [Урок 13.Транзакции, MVCC, ACID](./lessons/Lessons_13.md)
+14. [Урок 14. Индексы](./lessons/Lessons_14.md)
