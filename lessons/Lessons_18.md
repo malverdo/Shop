@@ -42,7 +42,7 @@ CREATE TABLE Region
     id   SERIAL PRIMARY KEY,
     country_id  INTEGER      NOT NULL,
     region_name VARCHAR(100) NOT NULL,
-    FOREIGN KEY (country_id) REFERENCES Country (id) ON DELETE CASCADE
+    FOREIGN KEY (country_id) REFERENCES Country (id)
 );
 
 -- Создание таблицы Address
@@ -55,8 +55,8 @@ CREATE TABLE Address
     city            VARCHAR(100) NOT NULL,
     street          VARCHAR(200),
     building_number VARCHAR(10),
-    FOREIGN KEY (country_id) REFERENCES Country (id) ON DELETE CASCADE,
-    FOREIGN KEY (region_id) REFERENCES Region (id) ON DELETE CASCADE
+    FOREIGN KEY (country_id) REFERENCES Country (id),
+    FOREIGN KEY (region_id) REFERENCES Region (id)
 );
 
 -- Создание таблицы Customer
