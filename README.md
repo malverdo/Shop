@@ -19,3 +19,4 @@
 14. [Урок 14. Индексы](./lessons/Lessons_14.md)
 15. [Урок 15 Оптимизация производительности. Профилирование. Мониторинг](./lessons/Lessons_15.md)
 16. [Урок 16 Хранимые процедуры и триггеры ](./lessons/Lessons_16.md)
+16. [Урок 18 MySQL - InnoDB Cluster ](./lessons/Lessons_18.md)
