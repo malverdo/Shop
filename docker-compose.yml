@@ -46,8 +46,11 @@ services:
   # docker-compose exec otusdb bash
   # mysql --user=root --password=12345
   # LOAD DATA LOCAL INFILE '/tmp/Fashion.csv' INTO TABLE otus.fashion;
+  # mysql --user=root --password=12345 shop < /tmp/world_db-195395-7d762d.sql
   otusdb:
-    image: mysql:8.0.16
+    build:
+      context: Deployment/Docker/${APP}/MySQL
+      dockerfile: Dockerfile
     environment:
       - MYSQL_ROOT_PASSWORD=12345
     command:
@@ -55,6 +58,8 @@ services:
     volumes:
       - ./Deployment/data/otusdb:/var/lib/mysql
       - ./Deployment/DataBaseInit/MySQL/create_tables.sql:/tmp/create_tables_init.sql
+      - ./Deployment/DataBaseInit/MySQL/world_db-195395-7d762d.sql:/tmp/world_db-195395-7d762d.sql
+      - ./Deployment/DataBaseInit/MySQL/backup/backup_des.xbstream.gz-195395-386c6b.des3:/tmp/backup_des.xbstream.gz-195395-386c6b.des3
       - ./Deployment/DataBaseInit/csv/Fashion.csv:/tmp/Fashion.csv
       - ./Deployment/DataBaseInit/MySQL/init.sql:/init.sql
       - ./Deployment/Docker/Dev/MySQL/conf:/etc/mysql/conf.d
@@ -62,3 +67,11 @@ services:
       - "3306"
     ports:
       - "3309:3306"
+
+#  percona-server-mysql:
+#    image: percona/percona-xtrabackup
+#    container_name: percona-server
+#    volumes:
+#      - ./Deployment/DataBaseInit/MySQL/backup/backup_des.xbstream.gz-195395-386c6b.des3:/tmp/backups/backup_des.xbstream.gz-195395-386c6b.des3
+#    environment:
+#      MYSQL_ROOT_PASSWORD: 12345
