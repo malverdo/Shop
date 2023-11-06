@@ -4,6 +4,7 @@ services:
     build:
       context: Deployment/Docker/${APP}/Postgres
       dockerfile: Dockerfile
+    container_name: shop_postgres
     restart: always
     environment:
       - POSTGRES_USER=postgres
@@ -27,6 +28,7 @@ services:
       PGADMIN_DEFAULT_EMAIL: "test@mail.ru"
       PGADMIN_DEFAULT_PASSWORD: "test@mail.ru"
     #id = 172.17.0.1
+    container_name: shop_pgadmin
     ports:
       - "16543:80"
     depends_on:
@@ -34,7 +36,7 @@ services:
 
   postgresql_01:
     image: postgres
-    container_name: postgresql_01
+    container_name: shop_postgres_02
     restart: always
     volumes:
       - ./Deployment/data/postgresql_01:/var/lib/postgresql/data
@@ -48,6 +50,7 @@ services:
   # LOAD DATA LOCAL INFILE '/tmp/Fashion.csv' INTO TABLE otus.fashion;
   # mysql --user=root --password=12345 shop < /tmp/world_db-195395-7d762d.sql
   otusdb:
+    container_name: shop_mysql_02
     build:
       context: Deployment/Docker/${APP}/MySQL
       dockerfile: Dockerfile
@@ -68,6 +71,19 @@ services:
     ports:
       - "3309:3306"
 
+  mongo:
+    image: mongo
+    container_name: shop_mongo
+    restart: always
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+      MONGO_INITDB_DATABASE: shop
+    volumes:
+      - ./data:/data/db
+      - ./Deployment/DataBaseInit/mongo/init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js
 #  percona-server-mysql:
 #    image: percona/percona-xtrabackup
 #    container_name: percona-server
